@@ -1,0 +1,24 @@
+<table>
+<tr>
+    <tr>Nome</tr>
+    <th>Email</th>
+    <th>Telefone</th>
+    <th>Primeira Nota</th>
+    <th>Segunda Nota</th>
+    <th>Terceira Nota</th>
+    <th>Situação</th>
+</tr>
+
+{{#each aluno}}
+<tr>
+    <td>{{nome}}</td>
+    <td>{{email}}</td>
+    <td>{{telefone}}</td>
+    <td>{{primeiraNota}}</td>
+    <td>{{segundaNota}}</td>
+    <td>{{terceiraNota}}</td>
+    <td>{{situacao}}</td>
+</tr>
+{{/each}}
+
+</table>

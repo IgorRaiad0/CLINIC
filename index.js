@@ -26,5 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 ///ROTAS DO SISTEMA
 
+app.get('/', (req, res) => {
+    res.render('/aluno');
+});
 
-app.listen(5000, ()=> console.log('Servidor Rodando em http://localhost:5000'))
+import aluno from "./routes/aluno.js";
+app.use('/aluno', aluno);
+
+
+app.listen(5000, ()=> console.log('Servidor Rodando em http://localhost:5000/aluno'))
