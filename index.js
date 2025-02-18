@@ -32,7 +32,7 @@ app.use('/ADM', admRouter);
 
 
 app.get('/', (req, res) => {
-    res.redirect('/ADM');
+    res.redirect('/index');
 });
 
-app.listen(5000, () => console.log('Servidor rodando em http://localhost:5000/ADM'));
+app.listen(5000, () => console.log('Servidor rodando em http://localhost:5000/ADM/index'));

@@ -1,24 +1,26 @@
 import express from "express";
 const router = express.Router();
-import Controllers from "../controllers/admController.js";
+import PacienteController from "../controllers/pacienteController.js";
+import MedicoController from "../controllers/medicoController.js";
+import admController from "../controllers/admController.js";
 
 
 // Rotas Pacientes
-router.get('/', Controllers.paciente.index);
-router.get('/cadastroPaciente', Controllers.paciente.cadastro);
-router.post('/salvarPaciente', Controllers.paciente.salvar);
-router.get('/listagemPacientes', Controllers.paciente.listagem);
-router.get('/editarPaciente/:id', Controllers.paciente.editarPaciente);
-router.post('/atualizarPaciente/:id', Controllers.paciente.atualizarPaciente);
-router.post('/apagarPaciente/:id', Controllers.paciente.apagarPaciente);
+router.get('/index', admController.index);
+router.get('/cadastroPaciente', PacienteController.cadastro);
+router.post('/salvarPaciente', PacienteController.salvar);
+router.get('/listagemPacientes', PacienteController.listagem);
+router.get('/editarPaciente/:id', PacienteController.editarPaciente);
+router.post('/atualizarPaciente/:id', PacienteController.atualizarPaciente);
+router.post('/apagarPaciente/:id', PacienteController.apagarPaciente);
 
 // Rotas Médicos
-router.get('/cadastroMedico', Controllers.medico.cadastro);
-router.post('/salvarMedico', Controllers.medico.salvar);
-router.get('/listagemMedicos', Controllers.medico.listagem);
-router.get('/editarMedico/:id', Controllers.medico.editarMedico);
-router.post('/editarMedico/:id', Controllers.medico.atualizarMedico);
-router.post('/apagarMedico/:id', Controllers.medico.apagarMedico);
+router.get('/cadastroMedico', MedicoController.cadastroMedico);
+router.post('/salvarMedico', MedicoController.salvarMedico);
+router.get('/listagemMedicos', MedicoController.listagemMedico);
+router.get('/editarMedico/:id', MedicoController.editarMedico);
+router.post('/editarMedico/:id', MedicoController.atualizarMedico);
+router.post('/apagarMedico/:id', MedicoController.apagarMedico);
 
 
 
