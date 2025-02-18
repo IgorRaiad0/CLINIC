@@ -1,0 +1,50 @@
+<h2>Listagem de Médicos</h2>
+
+<a href="/ADM">Voltar</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Especialidade</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>CRM</th>
+            <th>Data Nascimento</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each medicos}}
+            <tr>
+                <td>{{this.nome}}</td>
+                <td>{{this.especialidade}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.telefone}}</td>
+                <td>{{this.crm}}</td>
+                <td>{{formatDate this.DataNascimento}}</td>
+               
+                <td> 
+                    <a href="/ADM/editarMedico/{{this.id}}">Editar Médico</a> 
+                </td>
+
+                <td>  
+                    <a href="#{{this.id}}">Consultas</a> 
+                </td>
+                
+                <td>
+                <form action="/ADM/apagarMedico/{{this.id}}" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja apagar este médico?')">
+                        <button type="submit"> Apagar</button>
+                </td>
+
+            </tr>
+        {{else}}
+            <tr>
+                <td colspan="6">Nenhum médico cadastrado</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+

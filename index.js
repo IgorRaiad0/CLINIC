@@ -1,37 +1,38 @@
 import express from 'express';
-const app = express();
-
 import handlebars from "express-handlebars";
 import Handlebars from "handlebars";
-import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from 'url';
-import { allowInsecurePrototypeAccess} from "@handlebars/allow-prototype-access";
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 
-//CONFIGURAR O TEMPLATE PADRÃO
-app.engine('handlebars', handlebars.engine({
-    defaultLayout: 'principal',
-    handlebars: allowInsecurePrototypeAccess(Handlebars)
-}));
-app.set('view engine', 'handlebars');
-
-//CONFIGURAR O BODY PARSER PARA ENVIAR DADOS
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-//Pasta de Arquivos Estásticos
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-app.use(express.static(path.join(__dirname, 'public')));
+const app = express();
 
-
-///ROTAS DO SISTEMA
-
-app.get('/', (req, res) => {
-    res.render('/aluno');
+// Configuração do Handlebars com helper de data
+const hbs = handlebars.create({
+    helpers: {
+        formatDate: (date) => new Date(date).toLocaleDateString('pt-BR')
+    },
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
 });
 
-import aluno from "./routes/aluno.js";
-app.use('/aluno', aluno);
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
+
+// Middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Rotas
+import admRouter from "./routes/ADM.js";
+app.use('/ADM', admRouter);
 
 
-app.listen(5000, ()=> console.log('Servidor Rodando em http://localhost:5000/aluno'))
+
+app.get('/', (req, res) => {
+    res.redirect('/ADM');
+});
+
+app.listen(5000, () => console.log('Servidor rodando em http://localhost:5000/ADM'));

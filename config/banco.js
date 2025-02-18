@@ -1,8 +1,8 @@
 import Sequelize from 'sequelize'
 
-const DB_NAME = 'prova'
+const DB_NAME = 'clinic'
 const USER_NAME = 'root'
-const PASSWORD = ''
+const PASSWORD = '123'
 const HOST = 'localhost'
 
 const sequelize = new Sequelize(DB_NAME, USER_NAME, PASSWORD, {
@@ -17,4 +17,4 @@ sequelize.authenticate().then(function (){
     console.log('Falha na conexão: '+error);
 })
 
-export default {Sequelize, sequelize}
+export default { Sequelize, sequelize };
