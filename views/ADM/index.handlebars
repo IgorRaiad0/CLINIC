@@ -1,20 +1,23 @@
-<h2>Painel Administrativo</h2>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
 
-<div class="menu">
-    <a href="/ADM/cadastroPaciente" class="btn">Cadastrar Paciente</a>
-    <a href="/ADM/listagemPacientes" class="btn">Listar Pacientes</a>
-    <a href="/ADM/cadastroMedico" class="btn">Cadastrar Médico</a>
-    <a href="/ADM/listagemMedicos" class="btn">Listar Médicos</a>
-</div>
+    <div class="container mt-5">
+        <h2 class="text-center text-primary">Painel Administrativo</h2>
 
-<style>
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 10px;
-        background: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-</style>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a href="/ADM/cadastroPaciente" class="btn btn-outline-primary btn-lg">Cadastrar Paciente</a>
+            <a href="/ADM/listagemPacientes" class="btn btn-outline-primary btn-lg">Listar Pacientes</a>
+            <a href="/ADM/cadastroMedico" class="btn btn-outline-primary btn-lg">Cadastrar Médico</a>
+            <a href="/ADM/listagemMedicos" class="btn btn-outline-primary btn-lg">Listar Médicos</a>
+        </div>
+    </div>
+
+</body>
+</html>
